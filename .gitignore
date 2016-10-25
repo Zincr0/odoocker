@@ -1,0 +1,7 @@
+odoo/code
+odoo/custom-addons
+odoo/reporting-engine
+postgres/data/*
+odoo/conf/passenger.3000.log
+odoo/conf/passenger.3000.pid.lock
+odoo/conf/passenger_wsgi.pyc

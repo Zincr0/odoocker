@@ -1,0 +1,30 @@
+version: '2'
+services:
+
+  postgres:
+    container_name: postgres
+    build: ./postgres/
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1passpostgres
+    # - PGDATA=
+    # - POSTGRES_DB=
+    # - POSTGRES_INITDB_ARGS=
+    ports:
+      - "5432:5432"
+
+  odoo:
+    container_name: odoo
+    build: ./odoo/
+    volumes:
+      - ./odoo/code:/home/app/code
+      - ./odoo/conf:/home/app/conf
+      - ./odoo/custom-addons:/home/app/custom-addons
+      - ./odoo/reporting-engine:/home/app/reporting-engine
+    ports:
+      - "8069:8069"
+      - "3000:3000"
+      - "80:80"
+    tty: true
